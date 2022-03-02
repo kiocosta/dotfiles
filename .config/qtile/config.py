@@ -28,16 +28,16 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "control"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "control"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "control"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "control"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "shift"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "shift"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "shift"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -60,7 +60,7 @@ keys = [
 
 groups = [Group("DEV", layout='monadtall'),
           Group("WWW", layout='monadtall'),
-          Group("DOC", layout='monadtall'),
+          Group("CHAT", layout='monadtall'),
         #   Group("CHAT", layout='monadtall'),
           Group("MUS", layout='monadtall'),
         ]
@@ -78,15 +78,14 @@ layout_theme = {"border_width": 2,
                 }
 
 layouts = [
-    #layout.MonadWide(**layout_theme),
-    #layout.Bsp(**layout_theme),
-    #layout.Stack(stacks=2, **layout_theme),
-    #layout.Columns(**layout_theme),
-    #layout.RatioTile(**layout_theme),
-    #layout.Tile(shift_windows=True, **layout_theme),
-    #layout.VerticalTile(**layout_theme),
-    #layout.Matrix(**layout_theme),
-    #layout.Zoomy(**layout_theme),
+   # layout.MonadWide(**layout_theme),
+   # layout.Bsp(**layout_theme),
+   # layout.Stack(stacks=2, **layout_theme),
+   # layout.RatioTile(**layout_theme),
+   # layout.Tile(shift_windows=True, **layout_theme),
+   # layout.VerticalTile(**layout_theme),
+   # layout.Matrix(**layout_theme),
+   # layout.Zoomy(**layout_theme),
     # layout.MonadTall(**layout_theme),
     layout.Columns(**layout_theme),
     layout.Max(**layout_theme),
@@ -117,7 +116,7 @@ layouts = [
 
 colors = [["#11121D", "#11121D"], # background
           ["#dfdfdf", "#dfdfdf"], # gray
-          ["#636789", "#636789"], # highlight color
+          ["#53577a", "#53577a"], # highlight color
           ["#4f87ef", "#4f87ef"],
           ["#383c60", "#383c60"]]
 
@@ -241,7 +240,8 @@ def init_widgets_list():
                        background = colors[4],
                        threshold = 90,
                        fmt = 'Temp: {}',
-                       padding = 5
+                       padding = 5,
+                       tag_sensor = 'Package id 0'
                        ),
               widget.TextBox(
                        text = '',
@@ -285,10 +285,11 @@ def init_widgets_list():
                        background = colors[2],
                        format = "%A, %B %d - %H:%M "
                        ),
-            widget.Battery(
+              widget.Battery(
                         foreground = colors[1],
                         background = colors[4],
-                        padding = 10
+                        padding = 10,
+                        format = "{char} {percent:2.0%} {hour:d}:{min:02d}"
                         ),
               ]
     return widgets_list
