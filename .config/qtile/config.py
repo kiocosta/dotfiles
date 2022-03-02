@@ -115,21 +115,11 @@ layouts = [
     # layout.Floating(**layout_theme)
 ]
 
-class Color(enum.Enum):
-    background = '#11121D'
-    highlight_color = '#787c99'
-    highlight_color_darker = '#5d6281'
-
-colors = [["#11121D", "#11121D"],
-          ["#1c1f24", "#1c1f24"],
-          ["#dfdfdf", "#dfdfdf"],
-          ["#82AAFF", "#82AAFF"],
-          ["#FFCB6B", "#FFCB6B"],
-          ["#da8548", "#da8548"],
-          ["#C3E88D", "#C3E88D"],
+colors = [["#11121D", "#11121D"], # background
+          ["#dfdfdf", "#dfdfdf"], # gray
+          ["#636789", "#636789"], # highlight color
           ["#C792EA", "#C792EA"],
-          ["#C792EA", "#C792EA"],
-          ["#C792EA", "#C792EA"]]
+          ["#383c60", "#383c60"]]
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -147,7 +137,7 @@ def init_widgets_list():
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors[2],
+                       foreground = colors[1],
                        background = colors[0]
                        ),
               widget.Image(
@@ -158,7 +148,7 @@ def init_widgets_list():
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors[2],
+                       foreground = colors[1],
                        background = colors[0]
                        ),
               widget.GroupBox(
@@ -169,16 +159,16 @@ def init_widgets_list():
                        padding_y = 5,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = colors[2],
-                       inactive = colors[7],
+                       active = colors[1],
+                       inactive = colors[1],
                        rounded = False,
-                       highlight_color = colors[1],
+                       highlight_color = colors[2],
                        highlight_method = "line",
-                       this_current_screen_border = colors[6],
-                       this_screen_border = colors [4],
-                       other_current_screen_border = colors[6],
-                       other_screen_border = colors[4],
-                       foreground = colors[2],
+                       this_current_screen_border = colors[3],
+                       this_screen_border = colors[3],
+                       other_current_screen_border = colors[1],
+                       other_screen_border = colors[1],
+                       foreground = colors[1],
                        background = colors[0]
                        ),
              widget.TextBox(
@@ -197,7 +187,7 @@ def init_widgets_list():
                        scale = 0.7
                        ),
               widget.CurrentLayout(
-                       foreground = colors[2],
+                       foreground = colors[1],
                        background = colors[0],
                        padding = 5
                        ),
@@ -210,7 +200,7 @@ def init_widgets_list():
                        fontsize = 14
                        ),
               widget.WindowName(
-                       foreground = colors[6],
+                       foreground = colors[1],
                        background = colors[0],
                        padding = 0
                        ),
@@ -228,7 +218,7 @@ def init_widgets_list():
                        text = '',
                        font = "Ubuntu Mono",
                        background = colors[0],
-                       foreground = colors[3],
+                       foreground = colors[2],
                        padding = 0,
                        fontsize = 37
                        ),
@@ -236,13 +226,13 @@ def init_widgets_list():
                        interface = "enp5s0",
                        format = 'Net: {down} ↓↑ {up}',
                        foreground = colors[1],
-                       background = colors[3],
+                       background = colors[2],
                        padding = 5
                        ),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
-                       background = colors[3],
+                       background = colors[2],
                        foreground = colors[4],
                        padding = 0,
                        fontsize = 37
@@ -258,13 +248,13 @@ def init_widgets_list():
                        text = '',
                        font = "Ubuntu Mono",
                        background = colors[4],
-                       foreground = colors[6],
+                       foreground = colors[2],
                        padding = 0,
                        fontsize = 37
                        ),
               widget.Memory(
                        foreground = colors[1],
-                       background = colors[6],
+                       background = colors[2],
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
                        fmt = 'Mem: {}',
                        padding = 5
@@ -272,28 +262,28 @@ def init_widgets_list():
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
-                       background = colors[6],
-                       foreground = colors[7],
+                       background = colors[2],
+                       foreground = colors[4],
                        padding = 0,
                        fontsize = 37
                        ),
               widget.Volume(
                        foreground = colors[1],
-                       background = colors[7],
+                       background = colors[4],
                        fmt = 'Vol: {}',
                        padding = 5
                        ),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
-                       background = colors[7],
-                       foreground = colors[9],
+                       background = colors[4],
+                       foreground = colors[2],
                        padding = 0,
                        fontsize = 37
                        ),
               widget.Clock(
                        foreground = colors[1],
-                       background = colors[9],
+                       background = colors[2],
                        format = "%A, %B %d - %H:%M "
                        ),
               ]
