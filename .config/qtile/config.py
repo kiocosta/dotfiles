@@ -3,6 +3,7 @@ import os
 import re
 import socket
 import subprocess
+import enum
 from libqtile import qtile
 from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
 from libqtile.command import lazy
@@ -14,7 +15,7 @@ from typing import List  # noqa: F401from typing import List  # noqa: F401
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 terminal = "alacritty"      # My terminal of choice
 myBrowser = "brave" # My terminal of choice
-rofi = "rofi -show"
+rofi = "rofi -show drun"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -60,7 +61,7 @@ keys = [
 groups = [Group("DEV", layout='monadtall'),
           Group("WWW", layout='monadtall'),
           Group("DOC", layout='monadtall'),
-          Group("CHAT", layout='monadtall'),
+        #   Group("CHAT", layout='monadtall'),
           Group("MUS", layout='monadtall'),
         ]
 
@@ -72,8 +73,8 @@ dgroups_key_binder = simple_key_binder("mod4")
 
 layout_theme = {"border_width": 2,
                 "margin": 8,
-                "border_focus": "6f438d",
-                "border_normal": "1D2330"
+                "border_focus": "444b6a",
+                "border_normal": "11121D"
                 }
 
 layouts = [
@@ -114,7 +115,12 @@ layouts = [
     # layout.Floating(**layout_theme)
 ]
 
-colors = [["#24283b", "#24283b"],
+class Color(enum.Enum):
+    background = '#11121D'
+    highlight_color = '#787c99'
+    highlight_color_darker = '#5d6281'
+
+colors = [["#11121D", "#11121D"],
           ["#1c1f24", "#1c1f24"],
           ["#dfdfdf", "#dfdfdf"],
           ["#82AAFF", "#82AAFF"],
@@ -248,25 +254,6 @@ def init_widgets_list():
                        fmt = 'Temp: {}',
                        padding = 5
                        ),
-            #   widget.TextBox(
-            #            text='',
-            #            font = "Ubuntu Mono",
-            #            background = colors[4],
-            #            foreground = colors[5],
-            #            padding = 0,
-            #            fontsize = 37
-            #            ),
-            #   widget.CheckUpdates(
-            #            update_interval = 1800,
-            #            distro = "Arch_checkupdates",
-            #            display_format = "Updates: {updates} ",
-            #            foreground = colors[1],
-            #            colour_have_updates = colors[1],
-            #            colour_no_updates = colors[1],
-            #            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-            #            padding = 5,
-            #            background = colors[5]
-            #            ),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
@@ -296,14 +283,6 @@ def init_widgets_list():
                        fmt = 'Vol: {}',
                        padding = 5
                        ),
-            #   widget.TextBox(
-            #            text = '',
-            #            font = "Ubuntu Mono",
-            #            background = colors[7],
-            #            foreground = colors[8],
-            #            padding = 0,
-            #            fontsize = 37
-            #            ),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
