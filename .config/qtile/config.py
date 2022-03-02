@@ -118,7 +118,7 @@ layouts = [
 colors = [["#11121D", "#11121D"], # background
           ["#dfdfdf", "#dfdfdf"], # gray
           ["#636789", "#636789"], # highlight color
-          ["#C792EA", "#C792EA"],
+          ["#4f87ef", "#4f87ef"],
           ["#383c60", "#383c60"]]
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -222,9 +222,8 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
-             widget.Net(
-                       interface = "enp5s0",
-                       format = 'Net: {down} ↓↑ {up}',
+             widget.CryptoTicker(
+                       crypto = "BTC",
                        foreground = colors[1],
                        background = colors[2],
                        padding = 5
@@ -286,6 +285,11 @@ def init_widgets_list():
                        background = colors[2],
                        format = "%A, %B %d - %H:%M "
                        ),
+            widget.Battery(
+                        foreground = colors[1],
+                        background = colors[4],
+                        padding = 10
+                        ),
               ]
     return widgets_list
 
