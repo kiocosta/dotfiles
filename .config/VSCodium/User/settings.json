@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "Owlet (Slate)",
+    "window.menuBarVisibility": "toggle",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "[Owlet (Slate)]": {
+            "activityBar.background": "#11121D",
+            "editor.background": "#11121D",
+            "editorPane.background": "#11121D",
+            "sideBar.background": "#11121D",
+            "editorLineNumber.activeForeground": "#11121D",
+            "statusBar.background": "#11121D",
+            "breadcrumb.background": "#11121D",
+            "sideBarSectionHeader.background": "#11121D",
+            "minimap.background": "#11121D",
+            "tab.activeBackground": "#11121D",
+            "tab.activeBorder": "#787c99",
+            "button.background": "#787c99",
+            "button.hoverBackground": "#5d6281",
+            "editorGroup.dropBackground": "#787c99",
+            "dropdown.background": "#11121D",
+            "editorGroupHeader.tabsBackground": "#11121D",
+            "panel.background": "#11121D",
+            "notifications.background": "#11121D",
+            "editorGutter.background": "#11121D"
+        }
+    }
+}
