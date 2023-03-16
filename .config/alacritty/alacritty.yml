@@ -196,6 +196,8 @@
   #multiplier: 3
 
 # Font configuration
+ font:
+  size: 7.5 
 #font:
   # Normal (roman) font face
   #normal:
