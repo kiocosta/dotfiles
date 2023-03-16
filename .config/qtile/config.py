@@ -20,6 +20,7 @@ rofi = "rofi -show drun"
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # Power off computer
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -49,19 +50,26 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn(rofi), desc="Spawn a command using a prompt widget"),
+    # Increase/decrease window margins
+   # Key([mod], "f", lazy.layout.cmd_increase_margin()),
+   # Key([mod], "Down", lazy.layout.cmd_decrease_margin())
+    # Toggle window floating mode
+    Key([mod], "f", lazy.window.toggle_floating()),
+    # Locks screen
+#    Key([mod], "l", lazy.spawn("light-locker-command -l"), desc="Locks the screen"),
 ]
 
-groups = [Group("DEV", layout='monadtall'),
-          Group("WWW", layout='monadtall'),
-          Group("CHAT", layout='monadtall'),
-        #   Group("CHAT", layout='monadtall'),
+groups = [Group("WWW", layout='monadtall'),
+          Group("DEV", layout='monadtall'),
+          Group("TEAMS", layout='monadtall'),
+          Group("QA", layout='monadtall'),
           Group("MUS", layout='monadtall'),
         ]
 
@@ -241,7 +249,7 @@ def init_widgets_list():
                        threshold = 90,
                        fmt = 'Temp: {}',
                        padding = 5,
-                       tag_sensor = 'Package id 0'
+                       tag_sensor = 'Core 0'
                        ),
               widget.TextBox(
                        text = '',
@@ -289,6 +297,7 @@ def init_widgets_list():
                         foreground = colors[1],
                         background = colors[4],
                         padding = 10,
+                        notify_below = 20,
                         format = "{char} {percent:2.0%} {hour:d}:{min:02d}"
                         ),
               ]
@@ -296,7 +305,6 @@ def init_widgets_list():
 
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
-    del widgets_screen1[9:10]               # Slicing removes unwanted widgets (systray) on Monitors 1,3
     return widgets_screen1
 
 def init_widgets_screen2():
@@ -340,6 +348,19 @@ def switch_screens(qtile):
     i = qtile.screens.index(qtile.current_screen)
     group = qtile.screens[i - 1].group
     qtile.current_screen.set_group(group)
+
+def cmd_increase_margin(self):
+    self.margin += 10
+    self.group.layout_all()
+
+def cmd_decrease_margin(self):
+    new_margin = self.margin - 10
+    if new_margin < 0:
+        new_margin = 0
+
+    self.margin = new_margin
+
+    self.group.layout_all()
 
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
