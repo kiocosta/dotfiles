@@ -1,3 +1,4 @@
 setxkbmap br
 nitrogen --restore
-picom -f &
+picom --no-fading-open-close &
+light-locker &
