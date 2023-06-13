@@ -1,0 +1,93 @@
+[    19.325] 
+X.Org X Server 1.21.1.8
+X Protocol Version 11, Revision 0
+[    19.325] Current Operating System: Linux acer 6.1.33-1-lts #1 SMP PREEMPT_DYNAMIC Fri, 09 Jun 2023 10:50:53 +0000 x86_64
+[    19.325] Kernel command line: BOOT_IMAGE=/vmlinuz-linux-lts root=UUID=d0516658-a0c1-4ec6-aefe-e5f23ace6d53 rw cryptdevice=UUID=8037018c-2944-4b54-b931-30dc938ce5cf:cryptroot root=/dev/mapper/cryptroot loglevel=7
+[    19.325]  
+[    19.325] Current version of pixman: 0.42.2
+[    19.325] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[    19.325] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[    19.325] (==) Log file: "/var/log/Xorg.0.log", Time: Tue Jun 13 11:00:31 2023
+[    19.326] (==) Using config file: "/etc/X11/xorg.conf"
+[    19.326] (==) Using config directory: "/etc/X11/xorg.conf.d"
+[    19.326] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[    19.326] (==) ServerLayout "Layout0"
+[    19.326] (**) |-->Screen "Screen0" (0)
+[    19.326] (**) |   |-->Monitor "Monitor0"
+[    19.327] (**) |   |-->Device "Device0"
+[    19.327] (**) |   |-->GPUDevice "Intel Graphics"
+[    19.327] (**) |-->Input Device "Keyboard0"
+[    19.327] (**) |-->Input Device "Mouse0"
+[    19.327] (==) Automatically adding devices
+[    19.327] (==) Automatically enabling devices
+[    19.327] (==) Automatically adding GPU devices
+[    19.327] (==) Automatically binding GPU devices
+[    19.327] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[    19.327] (WW) The directory "/usr/share/fonts/Type1" does not exist.
+[    19.327] 	Entry deleted from font path.
+[    19.327] (==) FontPath set to:
+	/usr/share/fonts/misc,
+	/usr/share/fonts/TTF,
+	/usr/share/fonts/OTF,
+	/usr/share/fonts/100dpi,
+	/usr/share/fonts/75dpi
+[    19.327] (==) ModulePath set to "/usr/lib/xorg/modules"
+[    19.327] (WW) Hotplugging is on, devices using drivers 'kbd', 'mouse' or 'vmmouse' will be disabled.
+[    19.327] (WW) Disabling Keyboard0
+[    19.327] (WW) Disabling Mouse0
+[    19.327] (II) Module ABI versions:
+[    19.327] 	X.Org ANSI C Emulation: 0.4
+[    19.327] 	X.Org Video Driver: 25.2
+[    19.327] 	X.Org XInput driver : 24.4
+[    19.327] 	X.Org Server Extension : 10.0
+[    19.328] (++) using VT number 7
+
+[    19.329] (II) systemd-logind: logind integration requires -keeptty and -keeptty was not provided, disabling logind integration
+[    19.331] (II) xfree86: Adding drm device (/dev/dri/card1)
+[    19.331] (II) Platform probe for /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/drm/card1
+[    19.331] (II) xfree86: Adding drm device (/dev/dri/card0)
+[    19.331] (II) Platform probe for /sys/devices/pci0000:00/0000:00:02.0/drm/card0
+[    19.345] (**) OutputClass "nvidia" ModulePath extended to "/usr/lib/nvidia/xorg,/usr/lib/xorg/modules,/usr/lib/xorg/modules"
+[    19.346] (**) OutputClass "nvidia" ModulePath extended to "/usr/lib/nvidia/xorg,/usr/lib/xorg/modules,/usr/lib/nvidia/xorg,/usr/lib/xorg/modules,/usr/lib/xorg/modules"
+[    19.346] (**) OutputClass "nvidia" setting /dev/dri/card1 as PrimaryGPU
+[    19.349] (--) PCI: (0@0:2:0) 8086:3e9b:1025:1264 rev 0, Mem @ 0xa2000000/16777216, 0xb0000000/268435456, I/O @ 0x00005000/64, BIOS @ 0x????????/131072
+[    19.350] (--) PCI:*(1@0:0:0) 10de:1c8d:1025:1265 rev 161, Mem @ 0xa3000000/16777216, 0x90000000/268435456, 0xa0000000/33554432, I/O @ 0x00004000/128, BIOS @ 0x????????/524288
+[    19.350] (WW) Open ACPI failed (/var/run/acpid.socket) (No such file or directory)
+[    19.350] (II) LoadModule: "glx"
+[    19.350] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[    19.354] (II) Module glx: vendor="X.Org Foundation"
+[    19.354] 	compiled for 1.21.1.8, module version = 1.0.0
+[    19.354] 	ABI class: X.Org Server Extension, version 10.0
+[    19.354] (II) LoadModule: "nvidia-lts"
+[    19.355] (WW) Warning, couldn't open module nvidia-lts
+[    19.355] (EE) Failed to load module "nvidia-lts" (module does not exist, 0)
+[    19.355] (II) LoadModule: "intel"
+[    19.355] (II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so
+[    19.356] (II) Module intel: vendor="X.Org Foundation"
+[    19.356] 	compiled for 1.21.1.6, module version = 2.99.917
+[    19.356] 	Module class: X.Org Video Driver
+[    19.356] 	ABI class: X.Org Video Driver, version 25.2
+[    19.356] (II) intel: Driver for Intel(R) Integrated Graphics Chipsets:
+	i810, i810-dc100, i810e, i815, i830M, 845G, 854, 852GM/855GM, 865G,
+	915G, E7221 (i915), 915GM, 945G, 945GM, 945GME, Pineview GM,
+	Pineview G, 965G, G35, 965Q, 946GZ, 965GM, 965GME/GLE, G33, Q35, Q33,
+	GM45, 4 Series, G45/G43, Q45/Q43, G41, B43
+[    19.357] (II) intel: Driver for Intel(R) HD Graphics
+[    19.357] (II) intel: Driver for Intel(R) Iris(TM) Graphics
+[    19.357] (II) intel: Driver for Intel(R) Iris(TM) Pro Graphics
+[    19.357] (II) intel(G0): Using Kernel Mode Setting driver: i915, version 1.6.0 20201103
+[    19.357] (II) intel(G0): SNA compiled from 2.99.917-923-gb74b67f0
+[    19.358] (EE) No devices detected.
+[    19.358] (EE) 
+Fatal server error:
+[    19.358] (EE) no screens found(EE) 
+[    19.358] (EE) 
+Please consult the The X.Org Foundation support 
+	 at http://wiki.x.org
+ for help. 
+[    19.358] (EE) Please also check the log file at "/var/log/Xorg.0.log" for additional information.
+[    19.358] (EE) 
+[    19.379] (EE) Server terminated with error (1). Closing log file.
